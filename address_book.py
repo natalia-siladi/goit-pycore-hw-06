@@ -15,9 +15,8 @@ class Name(Field):
         if not self.validate(value):
             raise ValueError("Ім'я повинно містити лише літери.")
         super().__init__(value)
-
-    @staticmethod  
-    def validate(value):
+ 
+    def validate(self,value):
         return value.isalpha()
 
 
@@ -28,8 +27,8 @@ class Phone(Field):
         else:
             raise ValueError("Номер телефону має містити 10 цифр.")
 
-    @staticmethod  
-    def validate_phone(value):
+     
+    def validate_phone(self,value):
         pattern = r'^\d{10}$'
         return bool(re.match(pattern, value))
 
